@@ -24,6 +24,7 @@ const initScenes = () => scenes.map(createScene);
 const config = {
   // WebGL (Web graphics library) JS Api for rendering 2D and 3D graphics
   type: Phaser.AUTO,
+  parent: 'phaser-game',
   width: WIDTH,
   height: HEIGHT,
   pixelArt: true,
@@ -31,7 +32,7 @@ const config = {
     // Arcade physics plugin, manages physics simulation
     default: 'arcade',
     arcade: {
-      debug: true,
+      // debug: true,
     }
   },
   scene: initScenes(),
