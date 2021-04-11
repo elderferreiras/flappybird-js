@@ -24,6 +24,10 @@ class BaseScene extends Scene {
     }
   }
 
+  createOverlay() {
+    this.add.renderTexture(0, 0, this.config.width, this.config.height).fill(0x000000, 0.3);
+  }
+
   createMenu(menu, setupMenuEvents) {
     let lastMenuPositionY = 0;
     menu.forEach(menuItem => {

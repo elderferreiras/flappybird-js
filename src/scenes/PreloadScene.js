@@ -8,7 +8,7 @@ class PreloadScene extends Scene {
 
   preload() {
     this.load.image('sky', 'assets/sky.png');
-    this.load.spritesheet('bird', 'assets/birdSprite.png', {
+    this.load.spritesheet('bird', 'assets/bird.png', {
       frameWidth: 16, frameHeight: 16,
     });
     this.load.image('pipe', 'assets/pipe.png');

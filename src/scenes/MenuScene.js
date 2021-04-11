@@ -13,6 +13,7 @@ class MenuScene extends BaseScene {
 
   create() {
     this.add.image(0, 0, 'sky').setOrigin(0);
+    super.createOverlay();
     this.createMenu(this.menu, this.setupMenuEvents.bind(this));
   }
 
