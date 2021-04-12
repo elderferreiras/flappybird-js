@@ -11,10 +11,11 @@ import PauseScene from './scenes/PauseScene';
 const isMobile = screen.width <= 480;
 const scaleSettings = isMobile ? {
   scale: {
-    mode: Phaser.Scale.HEIGHT_CONTROLS_WIDTH,
+    mode: Phaser.Scale.FIT,
     autoCenter: Phaser.Scale.CENTER_BOTH
   }
 } : {};
+
 const WIDTH = isMobile ? 300 : 800;
 const HEIGHT = 600;
 const BIRD_POSITION = { x: WIDTH * 0.1, y: HEIGHT / 2 };

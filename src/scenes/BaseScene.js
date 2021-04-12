@@ -8,6 +8,7 @@ class BaseScene extends Scene {
     this.lineHeight = 42;
     this.fontOptions = { fontSize: `${this.fontSize}px`, fill: '#FFF' };
     this.screenCenter = [config.width / 2, config.height / 2];
+    this.overlay = null;
   }
 
   create() {
@@ -25,7 +26,11 @@ class BaseScene extends Scene {
   }
 
   createOverlay() {
-    this.add.renderTexture(0, 0, this.config.width, this.config.height).fill(0x000000, 0.3);
+    this.overlay = this.add.renderTexture(0, 0, this.config.width, this.config.height).fill(0x000000, 0.3);
+  }
+
+  destroyOverlay() {
+    this.overlay.destroy();
   }
 
   createMenu(menu, setupMenuEvents) {

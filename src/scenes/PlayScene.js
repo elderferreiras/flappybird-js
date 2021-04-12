@@ -129,6 +129,7 @@ class PlayScene extends BaseScene {
 
     this.pauseEvent = this.events.on('resume', () => {
       this.initialTime = 3;
+      this.createOverlay();
       this.countDownText = this.add.text(...this.screenCenter, 'Fly in: ' + this.initialTime, this.fontOptions).setOrigin(0.5);
       this.timedEvent = this.time.addEvent({
         delay: 1000,
@@ -148,6 +149,7 @@ class PlayScene extends BaseScene {
       this.countDownText.setText('');
       this.physics.resume();
       this.timedEvent.remove();
+      this.destroyOverlay();
     }
   }
 
