@@ -9,7 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Press+Start+2P&display=swap" rel="stylesheet">
   </head>
   <body>
-  <h1>Flappy Bird</h1>
+  <h1 id="title">Flappy Bird</h1>
   <div id="phaser-game"></div>
+  <script>
+    function codeAddress() {
+      if (screen.width <= 480) {
+        document.getElementById("title").remove();
+      }
+    }
+    window.onload = codeAddress;
+  </script>
   </body>
 </html>
