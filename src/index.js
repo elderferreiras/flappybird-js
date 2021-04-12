@@ -8,7 +8,14 @@ import PreloadScene from './scenes/PreloadScene';
 import ScoreScene from './scenes/ScoreScene';
 import PauseScene from './scenes/PauseScene';
 
-const WIDTH = 800;
+const isMobile = screen.width <= 480;
+const scaleSettings = isMobile ? {
+  scale: {
+    mode: Phaser.Scale.HEIGHT_CONTROLS_WIDTH,
+    autoCenter: Phaser.Scale.CENTER_BOTH
+  }
+} : {};
+const WIDTH = isMobile ? 300 : 800;
 const HEIGHT = 600;
 const BIRD_POSITION = { x: WIDTH * 0.1, y: HEIGHT / 2 };
 const SHARED_CONFIG = {
@@ -22,6 +29,7 @@ const createScene = Scene => new Scene(SHARED_CONFIG);
 const initScenes = () => scenes.map(createScene);
 
 const config = {
+  ...scaleSettings,
   // WebGL (Web graphics library) JS Api for rendering 2D and 3D graphics
   type: Phaser.AUTO,
   parent: 'phaser-game',
@@ -38,4 +46,8 @@ const config = {
   scene: initScenes(),
 };
 
-new Phaser.Game(config);
+const game = new Phaser.Game(config);
+
+window.addEventListener('resize', () => {
+  game.resize(window.innerWidth, window.innerHeight);
+});
